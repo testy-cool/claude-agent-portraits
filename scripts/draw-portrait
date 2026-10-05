@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Draw a portrait set for a coding agent.and install it.
+"""Draw a portrait set for a coding agent and install it.
 
 Sends the built-in default set as a 5x5 reference sheet to an image model,
 asks for its 19 poses plus 11 newer ones (30 cells, 6 by 5) drawn as a new

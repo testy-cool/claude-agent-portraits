@@ -30,7 +30,15 @@ To change the default set or the height, open `/config` and look for the `agent-
 
 ## Draw your own
 
-From the project folder:
+Ask Claude for one. The plugin ships a `draw-portrait` skill, so a request like this is enough:
+
+```text
+draw a portrait for this project: a deploy agent, a grizzled dwarf blacksmith with a braided red beard
+```
+
+Claude runs the drawing script, shows you the sheet, and you switch to it with `/portrait forge`. You can also hand it a photo, or ask for a second take of a set you already have.
+
+To run the script yourself, from the project folder:
 
 ```bash
 scripts/draw-portrait --name forge --role "a deploy agent" \
