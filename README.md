@@ -17,6 +17,12 @@ claude plugin install agent-portrait@claude-agent-portraits
 
 Start Claude Code and `oana` appears above the prompt. The picture needs a terminal with the kitty graphics protocol, such as Ghostty or kitty. Other terminals show a one-line description of the state instead.
 
+Inside a multiplexer, Claude Code cannot ask the terminal whether it shows images, so it shows the text instead. herdr passes the images through, so you can force them on. Add this line to your shell profile, then restart Claude Code:
+
+```bash
+[[ -n $HERDR_ENV && $TERM_PROGRAM == ghostty ]] && export CLAUDE_CODE_FORCE_TERMINAL_IMAGES=1
+```
+
 ## Switch characters
 
 ```text
