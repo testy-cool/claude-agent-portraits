@@ -1,0 +1,11 @@
+{
+  "name": "claude-agent-portraits",
+  "owner": { "name": "testy-cool" },
+  "plugins": [
+    {
+      "name": "agent-portrait",
+      "source": "./",
+      "description": "Animated pixel-art portrait above the Claude Code prompt that reacts to thinking, talking, tools, failures and idle time."
+    }
+  ]
+}

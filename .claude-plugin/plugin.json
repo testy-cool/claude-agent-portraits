@@ -1,0 +1,11 @@
+{
+  "name": "agent-portrait",
+  "version": "0.1.0",
+  "description": "Animated pixel-art portrait above the Claude Code prompt that reacts to thinking, talking, tools, failures and idle time.",
+  "author": { "name": "testy-cool" },
+  "license": "MIT",
+  "userConfig": {
+    "set": { "type": "string", "title": "Portrait set", "description": "Which character to show: a bundled set (oana, nova, cipher, forge, moss, quill, sprocket, default, red) or a folder in .claude/agent-portrait.", "default": "oana" },
+    "rows": { "type": "number", "title": "Height in rows", "description": "How many terminal rows the portrait takes, 3 to 20.", "default": 6 }
+  }
+}
