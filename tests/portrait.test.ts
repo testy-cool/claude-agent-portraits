@@ -10,6 +10,7 @@ function fakeDisk(on: On) {
   on('session.root', () => ({ value: '/project' }))
   on('env.get', () => ({ value: '/home/me' }))
   on('clock.now', () => ({ value: 1000 }))
+  on('fs.read', () => ({ value: { base64: 'iVBORw0KGgo=' } }))
   on('fs.write', ($, e) => {
     written.push(String(e.path))
     return { value: undefined }

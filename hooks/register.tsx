@@ -53,6 +53,9 @@ const P = {
   setName: 'oana',
   setDir: '',
   frames: new Map() as Frames,
+  // Each frame's PNG as base64. Sent as bytes, because a terminal behind a
+  // multiplexer such as herdr cannot read the file from disk itself.
+  png: new Map<string, string>(),
   state: 'idle' as State,
   variant: '',
   since: 0,
@@ -125,7 +128,9 @@ async function loadSet($: EngineInterface, name: string): Promise<boolean> {
       .sort()
     for (const f of files) {
       const v = variantOf(f)
-      byVariant.set(v, [...(byVariant.get(v) ?? []), `${dir}/${s}/${f}`])
+      const path = `${dir}/${s}/${f}`
+      if (!P.png.has(path)) P.png.set(path, (await $.fs.read(path, { as: 'bytes' })).base64)
+      byVariant.set(v, [...(byVariant.get(v) ?? []), path])
     }
     if (byVariant.size) found.set(s, byVariant)
   }
@@ -296,7 +301,7 @@ export const register: Register = (on, options) => {
       <Box height={P.rows}>
         <Image
           key="portrait"
-          source={{ file: P.shown, format: 'png' }}
+          source={P.png.has(P.shown) ? { png: P.png.get(P.shown)! } : { file: P.shown, format: 'png' }}
           columns={P.rows * 2}
           rows={P.rows}
           alt={`${P.setName}: ${P.state}`}
