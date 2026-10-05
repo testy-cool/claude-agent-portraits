@@ -1,6 +1,11 @@
 {
   "name": "claude-agent-portraits",
-  "owner": { "name": "testy-cool" },
+  "owner": {
+    "name": "testy-cool"
+  },
+  "metadata": {
+    "description": "Animated pixel-art portraits for Claude Code"
+  },
   "plugins": [
     {
       "name": "agent-portrait",
